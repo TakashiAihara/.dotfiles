@@ -389,8 +389,6 @@
 #       export PATH=$PATH:$HOME/n/bin
 #       alias edn='nv `npm prefix`/package.json'
 #
-#       [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-#
 #       # add GO PATH
 #       export GOPATH="$HOME/.go"
 #       export PATH="$PATH:$(go env GOPATH)/bin"
@@ -671,8 +669,6 @@
 #       return fontFamilyNames
 #       SCPT
 #       }
-#
-#       [[ -s "/$HOME/.gvm/scripts/gvm" ]] && source "/$HOME/.gvm/scripts/gvm"
 #
 #       # for fvm
 #       export FVM_HOME="$HOME/.fvm"
