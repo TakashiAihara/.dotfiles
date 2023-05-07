@@ -1,0 +1,20 @@
+[[plugins]] # 補完
+repo = 'Shougo/neocomplete.vim'
+
+[[plugins]] # メソッドの定義元にジャンプ
+repo = 'szw/vim-tags'
+
+[[plugins]] # Rubyのend補完
+repo = 'tpope/vim-endwise'
+#
+#[[plugins]] # ローカル変数ハイライト
+#repo = 'todesking/ruby_hl_lvar.vim'
+
+[[plugins]] # rails
+repo = 'basyura/unite-rails'
+
+[[plugins]] # rails
+repo = 'taka84u9/vim-ref-ri'
+
+#[[plugins]] # rails
+#repo = 'alpaca-tc/alpaca_tags'

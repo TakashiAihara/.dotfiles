@@ -1,0 +1,13 @@
+.DS_Store
+.metadata/
+.pnpm*
+docs_*/
+dump/
+out/
+pre-commit
+schema/
+schema_*/
+temp/
+thunder*.json
+thunder-collection_multi.json
+thunder-tests/
