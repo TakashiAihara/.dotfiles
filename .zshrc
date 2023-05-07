@@ -32,7 +32,6 @@ export PATH="$PNPM_HOME:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@; }
 
 export ANDROID_HOME="/usr/local/android"
 export ANDROID_SDK_ROOT="/usr/local/android"
