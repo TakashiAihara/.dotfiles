@@ -1,3 +1,25 @@
+let $CACHE = expand('~/.cache')
+
+if !isdirectory($CACHE)
+  call mkdir($CACHE, 'p')
+endif
+
+if &runtimepath !~# '/dein.vim'
+  let s:dein_dir = fnamemodify('dein.vim', ':p')
+
+  if !isdirectory(s:dein_dir)
+    let s:dein_dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
+
+    if !isdirectory(s:dein_dir)
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+    endif
+
+  endif
+
+  execute 'set runtimepath^=' .. substitute(
+        \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
+endif
+
 " https://qiita.com/park-jh/items/b353319efb1823c36c05#yajsvimesnextsyntaxvimjavascript-libraries-syntax
 augroup MyVimrc
   autocmd!
@@ -9,10 +31,8 @@ endif
 
 let $CACHE = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
 let $CONFIG = empty($XDG_CONFIG_HOME) ? expand('$HOME/.dein') : $XDG_CONFIG_HOME
-let $DEIN = empty($XDG_DEIN_HOME) ? expand('$CACHE/dein') : $XDG_DEIN_HOME
 
 " Required:
-set runtimepath+=$DEIN/repos/github.com/Shougo/dein.vim
 set clipboard+=unnamed
 
 " 小文字だけの場合は療法、大文字検索は無視しない、という設定.など https://liginc.co.jp/409849
@@ -41,8 +61,8 @@ if has('persistent_undo')
 endif
 
 " Required:
-if dein#load_state(expand('$DEIN'))
-  call dein#begin(expand('$DEIN'))
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
   " add plugin
   call dein#load_toml(expand('$CONFIG/plugins.toml'))
