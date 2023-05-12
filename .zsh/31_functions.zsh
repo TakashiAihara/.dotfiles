@@ -110,8 +110,6 @@ listspiders() {
   curl -u takashi:xcB2fB4tVfmanTFG "http://aiharahome.ddns.net:6800/listspiders.json?project=amazon_kindle_it_books_scrape" | jq -r ".spiders[]"
 }
 
-gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/\$@; }
-
 replace_ports() {
   find . -type d -name node_modules -prune -o -type d -name target -prune -o -type d -name .git -prune -o -print | xargs perl -i -pe "s/$1([^0-9a-zA-Z])/$2\$1/g"
   find . -type d -name node_modules -prune -o -type d -name target -prune -o -type d -name .git -prune -o -print | xargs perl -i -pe "s/$1\n/$2\n/g"
