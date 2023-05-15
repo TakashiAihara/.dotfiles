@@ -10,6 +10,7 @@ helper = cache --timeout=7200
 
 [ghq]
 root = ~/.ghq_src
+user = TakashiAihara
 
 [http]
 postBuffer = 157286400
