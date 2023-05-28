@@ -131,8 +131,12 @@ replace_github_url_to_raw() {
   echo "$1" | sed 's;github.com;raw.githubusercontent.com;' | sed 's;/blob/;/;'
 }
 
+get_all_subscriptions() {
+  gh api --paginate user/subscriptions | jq -r '.[] | "\(.owner.login)/\(.name)"'
+}
+
 unwawtch_all_watched_repos() {
-  for repo in $(gh api --paginate user/subscriptions | jq -r '.[] | "\(.owner.login)/\(.name)"'); do
+  for repo in $(get_all_subscriptions); do
     gh api -X DELETE "/repos/${repo}/subscription"
   done
 }
