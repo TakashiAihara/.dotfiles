@@ -24,7 +24,10 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/root/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 # bun completions
 [ -s "/root/.bun/_bun" ] && source "/root/.bun/_bun"
