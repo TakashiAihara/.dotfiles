@@ -194,3 +194,10 @@ convert_to_pem() {
 camel_to_snake() {
   echo $1 | sed 's/^[[:upper:]]/\L&/;s/[[:upper:]]/\L_&/g'
 }
+
+git_feature_start() {
+  echo git flow feature start ${1}_#${2}
+  git flow feature start ${1}_#${2}
+  echo git flow feature publish
+  git flow feature publish
+}
