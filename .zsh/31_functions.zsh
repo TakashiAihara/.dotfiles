@@ -201,3 +201,7 @@ git_feature_start() {
   echo git flow feature publish
   git flow feature publish
 }
+
+update_all_workspaces() {
+  for pac in `find ${PWD} -type f -name "package.json" | grep -v node_modules` ; do cd $(dirname ${pac}) ; pnpx npm-check-updates -u ; done ; cd $(git rev-parse --show-toplevel)
+}
