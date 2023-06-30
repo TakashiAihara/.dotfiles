@@ -41,3 +41,7 @@ export ANDROID_SDK_ROOT="/usr/local/android"
 
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+# Paperspace
+export PAPERSPACE_INSTALL="/root/.paperspace"
+export PATH="$PAPERSPACE_INSTALL/bin:$PATH"
