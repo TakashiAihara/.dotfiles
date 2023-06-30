@@ -195,13 +195,50 @@ camel_to_snake() {
   echo $1 | sed 's/^[[:upper:]]/\L&/;s/[[:upper:]]/\L_&/g'
 }
 
-git_feature_start() {
+git_flow_feature_start() {
   echo git flow feature start ${1}_#${2}
   git flow feature start ${1}_#${2}
+
   echo git flow feature publish
   git flow feature publish
 }
 
+git_flow_feature_finish_and_apply_main() {
+  echo git flow feature finish
+  git flow feature finish
+
+  echo git pull
+  git pull
+
+  echo git push
+  git push
+
+  echo git checkout main
+  git checkout main
+
+  echo git pull
+  git pull
+
+  echo git merge origin/develop
+  git merge origin/develop
+
+  echo git push
+  git push
+
+  echo git switch develop
+  git switch develop
+}
+
 update_all_workspaces() {
   for pac in `find ${PWD} -type f -name "package.json" | grep -v node_modules` ; do cd $(dirname ${pac}) ; pnpx npm-check-updates -u ; done ; cd $(git rev-parse --show-toplevel)
+}
+
+gh_issue_confirm() {
+  branch=$( git rev-parse --abbrev-ref HEAD )
+  issue_number=$( echo ${branch} | rev | cut -d "#" -f 1 | rev )
+  gh issue view ${issue_number}
+}
+
+gic() {
+ gh issue create --label $1 --body "" --title $2
 }
