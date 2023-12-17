@@ -44,8 +44,20 @@ get-git-project-name() {
   dirname $(git config --get remote.origin.url) | rev | cut -d "/" -f 1 | rev
 }
 
+get-project-name() {
+  dirname ${PWD} | rev | cut -d "/" -f 1 | rev
+}
+
 get-git-repository-name() {
   basename -s .git $(git config --get remote.origin.url)
+}
+
+get-repository-name() {
+  basename ${PWD}
+}
+
+get-git-full-repo-name(){
+  echo $(get-git-project-name)/$(get-git-repository-name)
 }
 
 get-git-bucket-compare-url() {
@@ -230,15 +242,58 @@ git_flow_feature_finish_and_apply_main() {
 }
 
 update_all_workspaces() {
-  for pac in `find ${PWD} -type f -name "package.json" | grep -v node_modules` ; do cd $(dirname ${pac}) ; pnpx npm-check-updates -u ; done ; cd $(git rev-parse --show-toplevel)
+  for pac in $(find ${PWD} -type f -name "package.json" | grep -v node_modules); do
+    cd $(dirname ${pac})
+    pnpx npm-check-updates -u
+  done
+  cd $(git rev-parse --show-toplevel)
 }
 
 gh_issue_confirm() {
-  branch=$( git rev-parse --abbrev-ref HEAD )
-  issue_number=$( echo ${branch} | rev | cut -d "#" -f 1 | rev )
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  issue_number=$(echo ${branch} | rev | cut -d "#" -f 1 | rev)
   gh issue view ${issue_number}
 }
 
 gic() {
- gh issue create --label $1 --body "" --title $2
+  gh issue create --label $1 --body "" --title $2
+}
+
+create_labels(){
+  gh label create "dev experience improvement"
+  gh label create "ux improvement"
+  gh label create "ui improvement"
+  gh label create "ci/cd improvement"
+  gh label create "security improvement"
+  gh label create "wait"
+}
+
+gs() {
+  gh issue create --label $1 --body "" --title $2
+}
+
+install-gh-star-quiet() {
+  gh extension install maggie-j-liu/gh-star &> /dev/null
+}
+
+star-current-repo(){
+  install-gh-star-quiet
+  gh star $(get-git-full-repo-name)
+}
+
+unstar-current-repo(){
+  install-gh-star-quiet
+  gh star $(get-git-full-repo-name) -r
+}
+
+grc-current-repo(){
+  gh repo create $(get-repository-name) --public
+}
+
+grcp-current-repo(){
+  gh repo create $(get-repository-name) --private
+}
+
+grao-current-repo(){
+  git remote add origin https://github.com/$(get-project-name)/$(get-repository-name).git
 }
