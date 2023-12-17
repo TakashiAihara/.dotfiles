@@ -55,3 +55,13 @@ zinit light supercrabtree/k
 
 # for zsh_history sync
 zinit snippet https://github.com/wulfgarpro/history-sync/blob/master/history-sync.plugin.zsh
+
+# aws cli & aws local cli
+autoload bashcompinit && bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/usr/local/bin/aws_completer' awslocal
+complete -o nospace -C '/root/.tfenv/bin/terraform' terraform
+zinit light drgr33n/oh-my-zsh_aws2-plugin
+
+# autoload -U +X bashcompinit && bashcompinit
+

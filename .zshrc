@@ -41,3 +41,7 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 # Paperspace
 export PAPERSPACE_INSTALL="/root/.paperspace"
 export PATH="$PAPERSPACE_INSTALL/bin:$PATH"
+export AWS_DEFAULT_REGION=ap-northeast-1
+export AWS_DEFAULT_PROFILE=takashi
+
+eval "$(direnv hook zsh)"
