@@ -1,6 +1,8 @@
 format = """
 $username\
 $hostname\
+${custom.gh}\
+${custom.gcloud}\
 $shlvl\
 $kubernetes\
 $directory\
@@ -137,27 +139,20 @@ style = "bold red"
 [nodejs]
 format = "[$symbol$version]($style) "
 
-#[env_var]
-#variable = "KINTONE_DOMAIN"
-#default = ""
-#style =	"white bold dimmed"
-#format = "[$env_value]($style) "
-
 [time]
 disabled = false
 format = '[ $time ]($style)'
 time_format = "%T"
 utc_time_offset = "-5"
 
-#[custom.domain]
-#when = 'if [ -z "$KINTONE_DOMAIN" ] ; then return 1 ; else return 0 ; fi'
-#command = "echo $KINTONE_DOMAIN"
+[custom.gh]
+command = 'gh profile show'
+style = 'bold white'
+symbol = "gh:"
+when = true
 
-#[custom.appid1]
-#when = "ls dest/customize-manifest.json"
-#command = "jq -r '.app' dest/customize-manifest.json"
-#
-#[custom.appid2]
-#when = "ls */dest/customize-manifest.json"
-#command = "jq -r '.app' */dest/customize-manifest.json"
-#
+[custom.gcloud]
+command = 'cat ~/.config/gcloud/active_config'
+style = 'bold dimmed green'
+symbol = "gc:"
+when = true
