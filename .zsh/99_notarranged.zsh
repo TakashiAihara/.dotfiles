@@ -130,9 +130,6 @@
 #        #eval "$(pyenv init --path)"
 #        #eval "$(pyenv init -)"
 #        #
-#        #set -x NVM_DIR "$HOME/.nvm"
-#        #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#        #
 #        #eval "$(starship init zsh)"
 #        #set -x PATH "/usr/local/opt/openjdk@8/bin:$PATH"
 #        #
@@ -582,9 +579,6 @@
 #       export PATH="$PATH:./.fvm/flutter_sdk/bin"
 #       export PATH="/usr/local/sbin:$PATH"
 #
-#
-#       export NVM_DIR="$HOME/.nvm"
-#       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #
 #       eval "$(starship init zsh)"
 #       export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
