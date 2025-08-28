@@ -13,9 +13,6 @@ fi
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-export YVM_DIR=/root/.yvm
-[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
-
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # pnpm
@@ -32,8 +29,8 @@ esac
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-export ANDROID_HOME="/usr/local/android"
-export ANDROID_SDK_ROOT="/usr/local/android"
+export ANDROID_HOME="/usr/local/bin/android"
+export ANDROID_SDK_ROOT="/usr/local/bin/android"
 
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
@@ -42,8 +39,5 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PAPERSPACE_INSTALL="/root/.paperspace"
 export PATH="$PAPERSPACE_INSTALL/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
-
-export AWS_DEFAULT_REGION=ap-northeast-1
-export AWS_DEFAULT_PROFILE=takashi
 
 eval "$(direnv hook zsh)"

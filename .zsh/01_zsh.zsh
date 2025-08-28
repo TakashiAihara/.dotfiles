@@ -15,8 +15,8 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_SAVE_NO_DUPS
 
 HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=10000000
+SAVEHIST=10000000
 
 # ディレクトリ解釈コマンドの自動移動
 setopt AUTO_CD
@@ -47,15 +47,9 @@ export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>'
 export GHQ_ROOT=${HOME}/.ghq_src
 
 export PATH="/root/.local/bin:$PATH"
-export ANDROID_HOME="/root/.android"
-export ANDROID_SDK_ROOT="/root/.android"
-export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
 
 export FLUTTER_ROOT="/root/.flutter"
 export PATH="$FLUTTER_ROOT/bin:$PATH"
 export PYTHONPATH=.
-
-export PATH="/root/.deta/bin:$PATH"
 
 export GIT_EDITOR=nvim

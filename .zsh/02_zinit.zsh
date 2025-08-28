@@ -35,8 +35,6 @@ zinit light tj/git-extras
 # TODO impl for windows
 #zinit light TakashiAihara/zsh-notify
 
-zinit light ajeetdsouza/zoxide
-
 zinit light StackExchange/blackbox
 zstyle ':notify:*' command-complete-timeout 15
 zstyle ':notify:*' always-notify-on-failure no
@@ -64,4 +62,3 @@ complete -o nospace -C '/root/.tfenv/bin/terraform' terraform
 zinit light drgr33n/oh-my-zsh_aws2-plugin
 
 # autoload -U +X bashcompinit && bashcompinit
-
