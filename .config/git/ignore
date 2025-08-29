@@ -9,3 +9,4 @@ thunder*.json
 thunder-collection_multi.json
 thunder-tests/
 .envrc
+.claude

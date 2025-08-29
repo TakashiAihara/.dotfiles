@@ -16,14 +16,14 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/root/.local/share/pnpm"
+export PNPM_HOME="${HOME}/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 # bun completions
-[ -s "/root/.bun/_bun" ] && source "/root/.bun/_bun"
+[ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -36,7 +36,7 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # Paperspace
-export PAPERSPACE_INSTALL="/root/.paperspace"
+export PAPERSPACE_INSTALL="${HOME}/.paperspace"
 export PATH="$PAPERSPACE_INSTALL/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 

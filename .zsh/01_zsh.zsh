@@ -1,5 +1,5 @@
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/root/.local/bin:$PATH"
+export PATH="${HOME}/.local/bin:$PATH"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export LANG=ja_JP.UTF-8
 
@@ -47,9 +47,8 @@ export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>'
 
 export GHQ_ROOT=${HOME}/.ghq_src
 
-export PATH="/root/.local/bin:$PATH"
 
-export FLUTTER_ROOT="/root/.flutter"
+export FLUTTER_ROOT="${HOME}/.flutter"
 export PATH="$FLUTTER_ROOT/bin:$PATH"
 export PYTHONPATH=.
 
