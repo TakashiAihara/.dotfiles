@@ -1,5 +1,6 @@
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/root/.local/bin:$PATH"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export LANG=ja_JP.UTF-8
 
 # zsh 保管機能有効
