@@ -40,5 +40,3 @@ export PAPERSPACE_INSTALL="${HOME}/.paperspace"
 export PATH="$PAPERSPACE_INSTALL/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
-eval "$(direnv hook zsh)"
-
