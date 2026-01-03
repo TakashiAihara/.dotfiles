@@ -36,3 +36,7 @@ writeCommitGraph = true
 [user]
 name = TakashiAihara
 email = 47384567+TakashiAihara@users.noreply.github.com
+[credential "https://gogs.local"]
+	helper = store
+[credential "http://gogs.local"]
+	helper = store
